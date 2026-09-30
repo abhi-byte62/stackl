@@ -1,0 +1,56 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: stacklens-api
+
+  # Data source with automatic H2 fallback or PostgreSQL
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:stacklensdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER:org.h2.Driver}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  # Redis for caching & rate-limiting
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      timeout: 2000ms
+
+  # RabbitMQ for asynchronous scanning pipeline
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:guest}
+    password: ${RABBITMQ_PASSWORD:guest}
+
+  # Jackson JSON formatting
+  jackson:
+    serialization:
+      indent-output: true
+
+# Scanner Worker Limits & Security Guardrails
+stacklens:
+  scanner:
+    connect-timeout-ms: 5000
+    read-timeout-ms: 10000
+    max-response-size-bytes: 5242880 # 5MB limit
+    max-redirects: 5
+    user-agent: "StackLens-Intelligence-Bot/2.0 (+https://stacklens.dev/bot)"
+    ssrf-protection-enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
