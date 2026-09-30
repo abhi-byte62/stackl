@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <rect width="32" height="32" rx="6" fill="#0F172A"/>
+  <rect x="0.5" y="0.5" width="31" height="31" rx="5.5" stroke="#334155"/>
+  <!-- Stack Layers -->
+  <path d="M7 11L16 6L25 11L16 16L7 11Z" fill="#3B82F6" fill-opacity="0.9"/>
+  <path d="M7 16L16 21L25 16" stroke="#60A5FA" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M7 21L16 26L25 21" stroke="#93C5FD" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Lens Focus Node -->
+  <circle cx="16" cy="11" r="2.5" fill="#FFFFFF"/>
+</svg>
