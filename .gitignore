@@ -1,0 +1,24 @@
+# Node & Frontend
+node_modules/
+dist/
+.tmp/
+*.local
+
+# Java & Backend
+target/
+*.class
+*.jar
+*.war
+
+# IDE & OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
